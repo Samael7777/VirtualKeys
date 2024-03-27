@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.Json.Serialization;
 using VirtualKeys.Extensions;
 
 namespace VirtualKeys;
@@ -21,6 +22,8 @@ public class HotKey : IEquatable<HotKey>
 
     public Modifiers Modifiers { get; }
     public Key Key { get; }
+
+	[JsonIgnore]
     public bool IsEmpty => Modifiers == Modifiers.None && Key == Key.NOKEY;
 
     #region Equals
